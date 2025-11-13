@@ -1,39 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Shrutuuu 💖</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shrutuuu 💖</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+.fade {
+  animation: fadeIn 2s ease forwards;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+button {
+  background: #fff;
+  color: #ff69b4;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px #fff;
+  transition: 0.3s;
+}
+button:hover {
+  background: #ff69b4;
+  color: #fff;
+  box-shadow: 0 0 25px #fff;
+}
+.hidden {
+  display: none;
+}
+.glow {
+  text-shadow: 0 0 15px #fff, 0 0 25px #ffb6c1;
+  animation: glowPulse 2s infinite alternate;
+}
+@keyframes glowPulse {
+  from {text-shadow: 0 0 10px #fff;}
+  to {text-shadow: 0 0 25px #ff69b4;}
+}
+.message {
+  font-size: 1.8em;
+  margin: 30px;
+  opacity: 0;
+  animation: showMsg 2s forwards;
+}
+@keyframes showMsg {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+.sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkle 5s infinite;
+}
+@keyframes sparkle {
+  0% {transform: translateY(0) scale(1); opacity: 1;}
+  100% {transform: translateY(-500px) scale(0); opacity: 0;}
+}
+</style>
 </head>
 <body>
+
+<!-- Page 1 -->
+<div id="page1" class="fade">
+  <h1 class="glow" style="margin-top: 20vh; font-size: 2.8em;">🎂 Happy Birthday Shrutuuu 💖</h1>
+  <img src="https://i.ibb.co/PMf6Tyz/flower.png" width="150">
+  <br><br>
+  <button onclick="revealMessage()">Click to Reveal Message</button>
+</div>
+
+<!-- Page 2 -->
+<div id="page2" class="hidden fade">
+  <audio id="bgm" src="music.mp3" autoplay></audio> <!-- replace with your file name -->
+  <h2 class="glow" style="margin-top: 10vh;">💝 For My Dearest Shrutuuu 💝</h2>
+  <div id="messages"></div>
+</div>
+
+<script>
+function revealMessage() {
+  document.getElementById('page1').classList.add('hidden');
+  const page2 = document.getElementById('page2');
+  page2.classList.remove('hidden');
+  page2.classList.add('fade');
   
-  <audio autoplay loop>
-    <source src="Ehsaas.mp3" type="audio/mpeg" />
-  </audio>
+  const bgm = document.getElementById('bgm');
+  bgm.play().catch(() => console.log("Autoplay blocked, user interaction required."));
+  
+  const msgs = [
+    "🌸 You make the world brighter with your smile 💫",
+    "💖 Every moment with you feels magical 💕",
+    "🎂 May your day be as sweet as your heart 🌷",
+    "✨ You’re my favorite reason to smile, Shrutuuu 💞"
+  ];
+  
+  const container = document.getElementById('messages');
+  msgs.forEach((text, i) => {
+    const msg = document.createElement('div');
+    msg.className = 'message glow';
+    msg.style.animationDelay = `${i * 3}s`;
+    msg.textContent = text;
+    container.appendChild(msg);
+  });
 
-  <div class="container">
-    <h1>🎂 Happy Birthday Shrutuuu 💖</h1>
-    <div class="photo-frame">
-      <img src="https://www.wallpaperflare.com/static/863/422/542/peonies-hydrangea-composition-pots-wallpaper.jpg" alt="Shrutuuu" class="center-photo" />
-      <div class="fade-gallery">
-        <img src="https://www.wallpaperflare.com/static/863/422/542/peonies-hydrangea-composition-pots-wallpaper.jpg" />
-        <img src="https://www.wallpaperflare.com/static/863/422/542/peonies-hydrangea-composition-pots-wallpaper.jpg" />
-        <img src="https://www.wallpaperflare.com/static/863/422/542/peonies-hydrangea-composition-pots-wallpaper.jpg" />
-        <!-- Add up to 20 photos -->
-      </div>
-    </div>
+  // sparkle effect
+  for(let i = 0; i < 50; i++){
+    let s = document.createElement('div');
+    s.className = 'sparkle';
+    s.style.left = Math.random() * window.innerWidth + 'px';
+    s.style.top = (Math.random() * window.innerHeight + 300) + 'px';
+    s.style.animationDuration = (3 + Math.random() * 5) + 's';
+    document.body.appendChild(s);
+  }
+}
+</script>
 
-    <button class="reveal-btn" onclick="revealMessage()">💌 Click to Reveal Message 💌</button>
-    <p id="message" class="hidden">
-      Happy Birthday, my dearest Shrutuuu 🩷<br>
-      You fill my world with colors brighter than code syntax.<br>
-      Every bug in life seems easier with you beside me.<br>
-      Love you endlessly 💫
-    </p>
-  </div>
-
-  <canvas id="confetti"></canvas>
-  <script src="script.js"></script>
 </body>
 </html>
