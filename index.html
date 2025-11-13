@@ -1,63 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Shrutuuu 🎂</title>
-<style>
-  body {
-    background: radial-gradient(circle, #ffdde1, #ee9ca7);
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    overflow: hidden;
-  }
-  h1 {
-    font-size: 2.8em;
-    margin-top: 20vh;
-    animation: pop 1.5s ease-in-out infinite alternate;
-  }
-  @keyframes pop {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); color: #ffb6c1; }
-  }
-  .heart {
-    font-size: 3em;
-    animation: pulse 1s infinite;
-  }
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-  }
-  #type {
-    font-size: 1.2em;
-    margin-top: 20px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Shrutuuu 💖</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎉 Initializing birthday.exe...</h1>
-  <div class="heart">❤️</div>
-  <h2 id="type"></h2>
+  <audio autoplay loop>
+    <source src="Ehsaas.mp3" type="audio/mpeg" />
+  </audio>
 
-  <script>
-    const msg = "Happy Birthday, my dearest Shrutuuu 💖 You’re the only constant in my ever-changing code of life 💻💞";
-    let i = 0;
-    function type() {
-      if (i < msg.length) {
-        document.getElementById("type").innerHTML += msg.charAt(i);
-        i++;
-        setTimeout(type, 70);
-      }
-    }
-    setTimeout(() => {
-      document.querySelector("h1").innerText = "🎂 Compiling Love...";
-      setTimeout(() => {
-        document.querySelector("h1").innerText = "✨ Executing happiness.sh...";
-        type();
-      }, 1500);
-    }, 1500);
-  </script>
+  <div class="container">
+    <h1>🎂 Happy Birthday Shrutuuu 💖</h1>
+    <div class="photo-frame">
+      <img src="main-photo.jpg" alt="Shrutuuu" class="center-photo" />
+      <div class="fade-gallery">
+        <img src="photo1.jpg" />
+        <img src="photo2.jpg" />
+        <img src="photo3.jpg" />
+        <!-- Add up to 20 photos -->
+      </div>
+    </div>
+
+    <button class="reveal-btn" onclick="revealMessage()">💌 Click to Reveal Message 💌</button>
+    <p id="message" class="hidden">
+      Happy Birthday, my dearest Shrutuuu 🩷<br>
+      You fill my world with colors brighter than code syntax.<br>
+      Every bug in life seems easier with you beside me.<br>
+      Love you endlessly 💫
+    </p>
+  </div>
+
+  <canvas id="confetti"></canvas>
+  <script src="script.js"></script>
 </body>
 </html>
