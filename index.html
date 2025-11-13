@@ -1,131 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Happy Birthday Shrutuuu 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
-  overflow: hidden;
-  color: white;
-  text-align: center;
-}
-.fade {
-  animation: fadeIn 2s ease forwards;
-}
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-button {
-  background: #fff;
-  color: #ff69b4;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 20px #fff;
-  transition: 0.3s;
-}
-button:hover {
-  background: #ff69b4;
-  color: #fff;
-  box-shadow: 0 0 25px #fff;
-}
-.hidden {
-  display: none;
-}
-.glow {
-  text-shadow: 0 0 15px #fff, 0 0 25px #ffb6c1;
-  animation: glowPulse 2s infinite alternate;
-}
-@keyframes glowPulse {
-  from {text-shadow: 0 0 10px #fff;}
-  to {text-shadow: 0 0 25px #ff69b4;}
-}
-.message {
-  font-size: 1.8em;
-  margin: 30px;
-  opacity: 0;
-  animation: showMsg 2s forwards;
-}
-@keyframes showMsg {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-.sparkle {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: white;
-  border-radius: 50%;
-  animation: sparkle 5s infinite;
-}
-@keyframes sparkle {
-  0% {transform: translateY(0) scale(1); opacity: 1;}
-  100% {transform: translateY(-500px) scale(0); opacity: 0;}
-}
+  :root{
+    --bg1: #ffd5e3;
+    --bg2: #ff9cc9;
+    --text: #fff;
+    --card-bg: rgba(255,255,255,0.06);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    height:100vh;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg,var(--bg1),var(--bg2));
+    color:var(--text);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* page containers */
+  .page{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:40px;
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .hidden{opacity:0; pointer-events:none; transform:scale(.98);}
+
+  /* Page1 */
+  #page1 h1{
+    font-size:2.4rem;
+    margin:0 0 14px 0;
+    letter-spacing:1px;
+    text-shadow:0 0 18px rgba(255,255,255,.25);
+  }
+  .btn{
+    margin-top:22px;
+    background:#fff;
+    color:#ff2f8f;
+    padding:12px 26px;
+    border-radius:28px;
+    border:none;
+    cursor:pointer;
+    font-weight:700;
+    box-shadow:0 6px 18px rgba(0,0,0,.15);
+    transition:transform .18s ease, box-shadow .18s;
+  }
+  .btn:active{transform:translateY(2px)}
+  .small{
+    opacity:.9;
+    margin-top:10px;
+    font-size:.9rem;
+  }
+
+  /* Page2 slideshow card */
+  .card{
+    width:min(920px,94vw);
+    max-width:920px;
+    min-height:520px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border-radius:18px;
+    padding:28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    display:flex;
+    gap:20px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* image area */
+  .photo-wrap{
+    width:80%;
+    max-width:680px;
+    height:320px;
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  }
+  .photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transform:scale(1.03);
+    transition:opacity .9s ease, transform .9s ease, filter .9s ease;
+    filter: blur(4px) saturate(.9);
+    border-radius:12px;
+  }
+  .photo.show{
+    opacity:1;
+    transform:scale(1);
+    filter: blur(0) saturate(1.05);
+  }
+
+  /* message */
+  .msg{
+    margin-top:16px;
+    font-size:1.3rem;
+    text-align:center;
+    max-width:86%;
+    line-height:1.4;
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease, text-shadow .6s ease;
+  }
+  .msg.show{
+    opacity:1;
+    transform:translateY(0);
+    text-shadow: 0 0 12px rgba(255,255,255,.12), 0 0 28px rgba(255,120,180,.22);
+  }
+
+  /* glowing stronger when final */
+  .msg.glow-strong{
+    animation: strongGlow 1.6s infinite alternate;
+    font-weight:700;
+  }
+  @keyframes strongGlow{
+    from { text-shadow:0 0 16px rgba(255,255,255,.12), 0 0 28px rgba(255,120,180,.24);}
+    to   { text-shadow:0 0 28px rgba(255,255,255,.22), 0 0 54px rgba(255,100,170,.36);}
+  }
+
+  /* controls */
+  .controls{
+    position:absolute;
+    right:18px;
+    bottom:18px;
+    display:flex;
+    gap:10px;
+  }
+  .control-btn{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.06);
+    color:var(--text);
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+  }
+
+  /* sparkle dots */
+  .sparkle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.9);
+    filter: blur(.6px);
+    opacity:0;
+    transform:translateY(10px) scale(.6);
+  }
+
+  /* responsive */
+  @media (max-width:720px){
+    .card{ padding:18px; min-height:420px;}
+    .photo-wrap{height:240px}
+    .msg{font-size:1.05rem}
+  }
 </style>
 </head>
 <body>
 
 <!-- Page 1 -->
-<div id="page1" class="fade">
-  <h1 class="glow" style="margin-top: 20vh; font-size: 2.8em;">🎂 Happy Birthday Shrutuuu 💖</h1>
-  <img src="https://i.ibb.co/PMf6Tyz/flower.png" width="150">
-  <br><br>
-  <button onclick="revealMessage()">Click to Reveal Message</button>
+<div id="page1" class="page">
+  <h1>🎂 Happy Birthday Shrutuuu 💖</h1>
+  <img src="https://i.ibb.co/PMf6Tyz/flower.png" alt="flower" width="130" style="border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,.15)">
+  <button class="btn" id="revealBtn">Click to Reveal Message</button>
+  <div class="small">(A soft slideshow will play with music & glowing messages)</div>
 </div>
 
 <!-- Page 2 -->
-<div id="page2" class="hidden fade">
-  <audio id="bgm" src="music.mp3" autoplay></audio> <!-- replace with your file name -->
-  <h2 class="glow" style="margin-top: 10vh;">💝 For My Dearest Shrutuuu 💝</h2>
-  <div id="messages"></div>
+<div id="page2" class="page hidden" aria-hidden="true">
+  <div class="card">
+    <div style="font-weight:800; font-size:1.2rem; opacity:.95;">💝 For My Dearest Shrutuuu 💝</div>
+
+    <div class="photo-wrap" id="photoWrap">
+      <!-- image(s) get inserted here -->
+      <img id="photoEl" class="photo" src="" alt="photo">
+    </div>
+
+    <div id="msgEl" class="msg"></div>
+
+    <div class="controls" id="controls">
+      <button class="control-btn" id="pauseBtn">Pause Music</button>
+      <button class="control-btn" id="replayBtn">Replay</button>
+      <button class="control-btn" id="skipBtn">Skip</button>
+    </div>
+  </div>
+
+  <!-- background audio - replace 'music.mp3' with your file -->
+  <audio id="bgm" src="music.mp3" preload="auto"></audio>
 </div>
 
 <script>
-function revealMessage() {
-  document.getElementById('page1').classList.add('hidden');
-  const page2 = document.getElementById('page2');
-  page2.classList.remove('hidden');
-  page2.classList.add('fade');
-  
-  const bgm = document.getElementById('bgm');
-  bgm.play().catch(() => console.log("Autoplay blocked, user interaction required."));
-  
-  const msgs = [
-    "🌸 You make the world brighter with your smile 💫",
-    "💖 Every moment with you feels magical 💕",
-    "🎂 May your day be as sweet as your heart 🌷",
-    "✨ You’re my favorite reason to smile, Shrutuuu 💞"
-  ];
-  
-  const container = document.getElementById('messages');
-  msgs.forEach((text, i) => {
-    const msg = document.createElement('div');
-    msg.className = 'message glow';
-    msg.style.animationDelay = `${i * 3}s`;
-    msg.textContent = text;
-    container.appendChild(msg);
-  });
+/* -------- CONFIG: Replace these photo URLs with your own files (or local filenames) ------- */
+const photos = [
+  'https://images.pexels.com/photos/355423/pexels-photo-355423.jpeg?auto=compress&cs=tinysrgb&w=1200', // sample
+  'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  'https://images.pexels.com/photos/207962/pexels-photo-207962.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=1200'
+];
+const messages = [
+  "🌸 You make the world brighter with your smile 💫",
+  "💖 Every moment with you feels magical — thankful for you!",
+  "🎂 May your day be as sweet and beautiful as you are 🌷",
+  "✨ You’re my brightest blessing — happy birthday, Shrutuuu 💕"
+];
+/* --------------------------------------------------------------------------------------- */
 
-  // sparkle effect
-  for(let i = 0; i < 50; i++){
-    let s = document.createElement('div');
-    s.className = 'sparkle';
-    s.style.left = Math.random() * window.innerWidth + 'px';
-    s.style.top = (Math.random() * window.innerHeight + 300) + 'px';
-    s.style.animationDuration = (3 + Math.random() * 5) + 's';
+/* Timings (ms) */
+const FADE_IN = 900;
+const HOLD = 2600;     // time to keep visible before fading out
+const FADE_OUT = 800;
+const BETWEEN = 300;   // small gap between cycles
+
+const revealBtn = document.getElementById('revealBtn');
+const page1 = document.getElementById('page1');
+const page2 = document.getElementById('page2');
+const photoEl = document.getElementById('photoEl');
+const msgEl = document.getElementById('msgEl');
+const bgm = document.getElementById('bgm');
+const pauseBtn = document.getElementById('pauseBtn');
+const replayBtn = document.getElementById('replayBtn');
+const skipBtn = document.getElementById('skipBtn');
+
+let index = 0;
+let running = false;
+let timers = [];
+let musicPaused = false;
+
+/* sparkle generator - decorative dots */
+function createSparkles(count=18){
+  for(let i=0;i<count;i++){
+    const s = document.createElement('div');
+    s.className='sparkle';
     document.body.appendChild(s);
+    const left = Math.random()*window.innerWidth;
+    const top = (Math.random()*0.6 + 0.08)*window.innerHeight;
+    s.style.left = left + 'px';
+    s.style.top = top + 'px';
+    // animate via JS (simple fade+rise)
+    const dur = 3000 + Math.random()*2600;
+    s.animate([
+      { opacity:0, transform:'translateY(10px) scale(.6)'},
+      { opacity:1, transform:'translateY(0) scale(1)'},
+      { opacity:0, transform:'translateY(-40px) scale(.8)'}
+    ], { duration: dur, easing:'ease-out', iterations: Infinity, delay: Math.random()*1000 });
   }
 }
-</script>
 
+/* utility to clear scheduled timers */
+function clearTimers(){
+  timers.forEach(t => clearTimeout(t));
+  timers = [];
+}
+
+/* show single slide (photo + message) */
+function showSlide(i){
+  return new Promise(resolve => {
+    // set photo & message
+    photoEl.classList.remove('show');
+    msgEl.classList.remove('show','glow-strong');
+    photoEl.style.opacity = 0;
+    msgEl.style.opacity = 0;
+    // small delay to ensure transition
+    timers.push(setTimeout(()=> {
+      photoEl.src = photos[i];
+      // once image loads, show it
+      photoEl.onload = () => {
+        // fade-in photo
+        photoEl.classList.add('show');
+        // show message slightly delayed
+        timers.push(setTimeout(()=>{
+          msgEl.textContent = messages[i] || '';
+          msgEl.classList.add('show');
+        }, FADE_IN * 0.4));
+      };
+      // fallback if image cached and onload didn't fire
+      timers.push(setTimeout(() => {
+        if(!photoEl.classList.contains('show')){
+          photoEl.classList.add('show');
+        }
+        if(!msgEl.classList.contains('show')){
+          msgEl.textContent = messages[i] || '';
+          msgEl.classList.add('show');
+        }
+      }, FADE_IN + 120));
+      // keep displayed, then fade out both
+      const totalVisible = FADE_IN + HOLD;
+      timers.push(setTimeout(()=>{
+        photoEl.classList.remove('show');
+        msgEl.classList.remove('show');
+      }, totalVisible));
+      // resolve after fade out completes
+      timers.push(setTimeout(()=>{
+        resolve();
+      }, FADE_IN + HOLD + FADE_OUT + BETWEEN));
+    }, 60));
+  });
+}
+
+/* main run loop */
+async function runSequence(start=0){
+  running = true;
+  index = start;
+  // autoplay music if possible
+  bgm.currentTime = 0;
+  bgm.play().catch(()=>{ console.log("autoplay blocked"); });
+  while(running && index < photos.length){
+    await showSlide(index);
+    index++;
+  }
+  // final glow message: show last message stronger
+  if(running){
+    // show final card (repeat last or custom)
+    const lastIndex = Math.min(photos.length-1, index-1);
+    photoEl.src = photos[lastIndex];
+    photoEl.classList.add('show');
+    msgEl.textContent = messages[lastIndex] || '';
+    msgEl.classList.add('show','glow-strong');
+    // small hold then stop
+    timers.push(setTimeout(()=>{
+      // leave it for a while; user can replay
+    }, 2500));
+  }
+}
+
+/* reveal -> go to page2 and start slideshow */
+revealBtn.addEventListener('click', ()=> {
+  page1.classList.add('hidden');
+  page2.classList.remove('hidden');
+  page2.setAttribute('aria-hidden','false');
+  // create sparkles
+  createSparkles(20);
+  // try to play music (some browsers allow play after user click)
+  bgm.play().catch(()=>{ musicPaused = true; pauseBtn.textContent = 'Play Music'; });
+  // start sequence
+  clearTimers();
+  runSequence(0);
+});
+
+/* controls */
+pauseBtn.addEventListener('click', () => {
+  if(bgm.paused){
+    bgm.play();
+    pauseBtn.textContent = 'Pause Music';
+  } else {
+    bgm.pause();
+    pauseBtn.textContent = 'Play Music';
+  }
+});
+replayBtn.addEventListener('click', () => {
+  clearTimers();
+  // reset and restart
+  index = 0;
+  photoEl.classList.remove('show');
+  msgEl.classList.remove('show','glow-strong');
+  runSequence(0);
+});
+skipBtn.addEventListener('click', () => {
+  // skip current to next: clear timers and call show next
+  clearTimers();
+  if(index < photos.length - 1) index++;
+  else index = photos.length - 1;
+  runSequence(index);
+});
+
+/* cleanup when page hidden/unloaded */
+window.addEventListener('beforeunload', () => {
+  clearTimers();
+  if(bgm) { try { bgm.pause(); } catch(e){} }
+});
+</script>
 </body>
 </html>
