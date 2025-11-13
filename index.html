@@ -6,193 +6,49 @@
 <title>Happy Birthday Shrutuuu 💖</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg1: #ffd5e3;
-    --bg2: #ff9cc9;
-    --text: #fff;
-    --card-bg: rgba(255,255,255,0.06);
-  }
+  :root{--bg1:#ffd5e3;--bg2:#ff9cc9;--text:#fff}
   *{box-sizing:border-box}
   body{
-    margin:0;
-    height:100vh;
-    font-family:'Poppins',sans-serif;
+    margin:0;height:100vh;font-family:'Poppins',sans-serif;
     background: linear-gradient(135deg,var(--bg1),var(--bg2));
-    color:var(--text);
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    color:var(--text);overflow:hidden;display:flex;align-items:center;justify-content:center;
   }
-
-  /* page containers */
-  .page{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    padding:40px;
-    transition:opacity .8s ease, transform .8s ease;
-  }
-  .hidden{opacity:0; pointer-events:none; transform:scale(.98);}
-
-  /* Page1 */
-  #page1 h1{
-    font-size:2.4rem;
-    margin:0 0 14px 0;
-    letter-spacing:1px;
-    text-shadow:0 0 18px rgba(255,255,255,.25);
-  }
-  .btn{
-    margin-top:22px;
-    background:#fff;
-    color:#ff2f8f;
-    padding:12px 26px;
-    border-radius:28px;
-    border:none;
-    cursor:pointer;
-    font-weight:700;
-    box-shadow:0 6px 18px rgba(0,0,0,.15);
-    transition:transform .18s ease, box-shadow .18s;
-  }
-  .btn:active{transform:translateY(2px)}
-  .small{
-    opacity:.9;
-    margin-top:10px;
-    font-size:.9rem;
-  }
-
-  /* Page2 slideshow card */
-  .card{
-    width:min(920px,94vw);
-    max-width:920px;
-    min-height:520px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-    border-radius:18px;
-    padding:28px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    display:flex;
-    gap:20px;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    position:relative;
-    overflow:hidden;
-  }
-
-  /* image area */
-  .photo-wrap{
-    width:80%;
-    max-width:680px;
-    height:320px;
-    border-radius:12px;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  }
-  .photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0;
-    transform:scale(1.03);
-    transition:opacity .9s ease, transform .9s ease, filter .9s ease;
-    filter: blur(4px) saturate(.9);
-    border-radius:12px;
-  }
-  .photo.show{
-    opacity:1;
-    transform:scale(1);
-    filter: blur(0) saturate(1.05);
-  }
-
-  /* message */
-  .msg{
-    margin-top:16px;
-    font-size:1.3rem;
-    text-align:center;
-    max-width:86%;
-    line-height:1.4;
-    opacity:0;
-    transform:translateY(18px);
-    transition:opacity .6s ease, transform .6s ease, text-shadow .6s ease;
-  }
-  .msg.show{
-    opacity:1;
-    transform:translateY(0);
-    text-shadow: 0 0 12px rgba(255,255,255,.12), 0 0 28px rgba(255,120,180,.22);
-  }
-
-  /* glowing stronger when final */
-  .msg.glow-strong{
-    animation: strongGlow 1.6s infinite alternate;
-    font-weight:700;
-  }
-  @keyframes strongGlow{
-    from { text-shadow:0 0 16px rgba(255,255,255,.12), 0 0 28px rgba(255,120,180,.24);}
-    to   { text-shadow:0 0 28px rgba(255,255,255,.22), 0 0 54px rgba(255,100,170,.36);}
-  }
-
-  /* controls */
-  .controls{
-    position:absolute;
-    right:18px;
-    bottom:18px;
-    display:flex;
-    gap:10px;
-  }
-  .control-btn{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.06);
-    color:var(--text);
-    padding:8px 12px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:600;
-  }
-
-  /* sparkle dots */
-  .sparkle{
-    position:absolute;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.9);
-    filter: blur(.6px);
-    opacity:0;
-    transform:translateY(10px) scale(.6);
-  }
-
-  /* responsive */
-  @media (max-width:720px){
-    .card{ padding:18px; min-height:420px;}
-    .photo-wrap{height:240px}
-    .msg{font-size:1.05rem}
-  }
+  .page{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:40px;transition:opacity .6s,transform .6s}
+  .hidden{opacity:0;pointer-events:none;transform:scale(.98)}
+  h1{font-size:2.2rem;margin:0 0 14px 0}
+  .btn{margin-top:22px;background:#fff;color:#ff2f8f;padding:12px 26px;border-radius:28px;border:none;cursor:pointer;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+  .card{width:min(920px,94vw);max-width:920px;min-height:520px;border-radius:18px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;overflow:hidden;background:rgba(255,255,255,0.03)}
+  .photo-wrap{width:80%;max-width:720px;height:320px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+  .photo{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .9s,transform .9s,filter .9s;filter: blur(4px) saturate(.9);border-radius:12px}
+  .photo.show{opacity:1;transform:scale(1);filter:blur(0) saturate(1.03)}
+  .msg{margin-top:10px;font-size:1.2rem;text-align:center;max-width:86%;line-height:1.4;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+  .msg.show{opacity:1;transform:translateY(0);text-shadow:0 0 12px rgba(255,255,255,.12),0 0 28px rgba(255,120,180,.22)}
+  .msg.glow-strong{animation:strongGlow 1.6s infinite alternate;font-weight:700}
+  @keyframes strongGlow{from{text-shadow:0 0 16px rgba(255,255,255,.12),0 0 28px rgba(255,120,180,.24)}to{text-shadow:0 0 28px rgba(255,255,255,.22),0 0 54px rgba(255,100,170,.36)}}
+  .controls{position:absolute;right:18px;bottom:18px;display:flex;gap:10px}
+  .control-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600}
+  .status{position:absolute;left:18px;bottom:16px;background:rgba(0,0,0,0.18);padding:8px 10px;border-radius:8px;font-size:0.9rem}
+  .placeholder{display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg,#ffe9f3,#ffd8ea);color:#333;font-weight:700}
+  @media(max-width:720px){.photo-wrap{height:240px}.msg{font-size:1rem}.card{min-height:420px;padding:16px}}
 </style>
 </head>
 <body>
 
 <!-- Page 1 -->
-<div id="page1" class="page">
+<div id="page1" class="page" aria-hidden="false">
   <h1>🎂 Happy Birthday Shrutuuu 💖</h1>
-  <img src="https://i.ibb.co/PMf6Tyz/flower.png" alt="flower" width="130" style="border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,.15)">
+  <img src="https://i.ibb.co/PMf6Tyz/flower.png" alt="flower" width="130" style="border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.15)">
   <button class="btn" id="revealBtn">Click to Reveal Message</button>
-  <div class="small">(A soft slideshow will play with music & glowing messages)</div>
+  <div style="margin-top:10px;font-size:.95rem;opacity:.95">(Tap to start slideshow & music)</div>
 </div>
 
 <!-- Page 2 -->
 <div id="page2" class="page hidden" aria-hidden="true">
   <div class="card">
-    <div style="font-weight:800; font-size:1.2rem; opacity:.95;">💝 For My Dearest Shrutuuu 💝</div>
-
+    <div style="font-weight:800;font-size:1.1rem;opacity:.95">💝 For My Dearest Shrutuuu 💝</div>
     <div class="photo-wrap" id="photoWrap">
-      <!-- image(s) get inserted here -->
-      <img id="photoEl" class="photo" src="" alt="photo">
+      <div id="photoHolder" class="placeholder">Image will appear here</div>
+      <img id="photoEl" class="photo" src="" alt="photo" style="position:absolute;inset:0">
     </div>
 
     <div id="msgEl" class="msg"></div>
@@ -202,19 +58,21 @@
       <button class="control-btn" id="replayBtn">Replay</button>
       <button class="control-btn" id="skipBtn">Skip</button>
     </div>
+
+    <div class="status" id="status">Ready</div>
   </div>
 
-  <!-- background audio - replace 'music.mp3' with your file -->
-  <audio id="bgm" src="Ehsaas.mp3" preload="auto"></audio>
+  <!-- audio: replace 'music.mp3' with your file name -->
+  <audio id="bgm" src="music.mp3" preload="auto"></audio>
 </div>
 
 <script>
-/* -------- CONFIG: Replace these photo URLs with your own files (or local filenames) ------- */
+/* ====== CONFIG: Replace filenames/URLs here ====== */
 const photos = [
-  'https://images.pexels.com/photos/355423/pexels-photo-355423.jpeg?auto=compress&cs=tinysrgb&w=1200', // sample
-  'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/207962/pexels-photo-207962.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg"
 ];
 const messages = [
   "🌸 You make the world brighter with your smile 💫",
@@ -222,171 +80,157 @@ const messages = [
   "🎂 May your day be as sweet and beautiful as you are 🌷",
   "✨ You’re my brightest blessing — happy birthday, Shrutuuu 💕"
 ];
-/* --------------------------------------------------------------------------------------- */
+/* ============================================== */
 
-/* Timings (ms) */
-const FADE_IN = 900;
-const HOLD = 2600;     // time to keep visible before fading out
-const FADE_OUT = 800;
-const BETWEEN = 300;   // small gap between cycles
-
+const FADE_IN = 900, HOLD = 2600, FADE_OUT = 800, BETWEEN = 300;
 const revealBtn = document.getElementById('revealBtn');
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const photoEl = document.getElementById('photoEl');
+const photoHolder = document.getElementById('photoHolder');
 const msgEl = document.getElementById('msgEl');
 const bgm = document.getElementById('bgm');
 const pauseBtn = document.getElementById('pauseBtn');
 const replayBtn = document.getElementById('replayBtn');
 const skipBtn = document.getElementById('skipBtn');
+const status = document.getElementById('status');
 
-let index = 0;
-let running = false;
-let timers = [];
-let musicPaused = false;
+let index = 0, running = false, timers = [];
 
-/* sparkle generator - decorative dots */
-function createSparkles(count=18){
-  for(let i=0;i<count;i++){
-    const s = document.createElement('div');
-    s.className='sparkle';
-    document.body.appendChild(s);
-    const left = Math.random()*window.innerWidth;
-    const top = (Math.random()*0.6 + 0.08)*window.innerHeight;
-    s.style.left = left + 'px';
-    s.style.top = top + 'px';
-    // animate via JS (simple fade+rise)
-    const dur = 3000 + Math.random()*2600;
-    s.animate([
-      { opacity:0, transform:'translateY(10px) scale(.6)'},
-      { opacity:1, transform:'translateY(0) scale(1)'},
-      { opacity:0, transform:'translateY(-40px) scale(.8)'}
-    ], { duration: dur, easing:'ease-out', iterations: Infinity, delay: Math.random()*1000 });
-  }
+/* helper to update visible status */
+function setStatus(text, isError=false){
+  status.textContent = text;
+  status.style.background = isError ? "rgba(255,80,90,0.18)" : "rgba(0,0,0,0.18)";
+  console.log(text);
 }
 
-/* utility to clear scheduled timers */
-function clearTimers(){
-  timers.forEach(t => clearTimeout(t));
-  timers = [];
-}
+/* clear timeouts */
+function clearTimers(){ timers.forEach(t => clearTimeout(t)); timers=[]; }
 
-/* show single slide (photo + message) */
+/* handle image load errors gracefully */
+photoEl.onerror = function(){
+  console.warn("Image failed to load:", photoEl.src);
+  photoHolder.textContent = "Image not found";
+  photoHolder.style.display = "flex";
+  photoEl.classList.remove('show');
+  setStatus("Some images failed to load (check filenames).", true);
+};
+
+/* show single slide */
 function showSlide(i){
   return new Promise(resolve => {
-    // set photo & message
+    setStatus(`Showing ${i+1}/${photos.length}`);
+    // reset visibility
     photoEl.classList.remove('show');
     msgEl.classList.remove('show','glow-strong');
-    photoEl.style.opacity = 0;
-    msgEl.style.opacity = 0;
-    // small delay to ensure transition
-    timers.push(setTimeout(()=> {
-      photoEl.src = photos[i];
-      // once image loads, show it
+    photoHolder.style.display = "flex";
+    photoHolder.textContent = "Loading image...";
+    photoEl.src = ""; // reset
+    // small delay then set src
+    timers.push(setTimeout(()=>{
+      const src = photos[i];
+      photoEl.src = src;
+      // if image loads, onload will fire
       photoEl.onload = () => {
-        // fade-in photo
+        photoHolder.style.display = "none";
         photoEl.classList.add('show');
-        // show message slightly delayed
+        // show message after small delay
         timers.push(setTimeout(()=>{
-          msgEl.textContent = messages[i] || '';
+          msgEl.textContent = messages[i] || "";
           msgEl.classList.add('show');
-        }, FADE_IN * 0.4));
+        }, FADE_IN * 0.45));
       };
-      // fallback if image cached and onload didn't fire
-      timers.push(setTimeout(() => {
+      // fallback if onload doesn't run quickly (cached)
+      timers.push(setTimeout(()=>{
         if(!photoEl.classList.contains('show')){
+          photoHolder.style.display = "none";
           photoEl.classList.add('show');
+          if(!msgEl.classList.contains('show')){
+            msgEl.textContent = messages[i] || "";
+            msgEl.classList.add('show');
+          }
         }
-        if(!msgEl.classList.contains('show')){
-          msgEl.textContent = messages[i] || '';
-          msgEl.classList.add('show');
-        }
-      }, FADE_IN + 120));
-      // keep displayed, then fade out both
+      }, FADE_IN + 160));
+      // schedule fade out
       const totalVisible = FADE_IN + HOLD;
       timers.push(setTimeout(()=>{
         photoEl.classList.remove('show');
         msgEl.classList.remove('show');
       }, totalVisible));
-      // resolve after fade out completes
-      timers.push(setTimeout(()=>{
-        resolve();
-      }, FADE_IN + HOLD + FADE_OUT + BETWEEN));
-    }, 60));
+      // resolve after fade out
+      timers.push(setTimeout(()=>resolve(), FADE_IN + HOLD + FADE_OUT + BETWEEN));
+    }, 80));
   });
 }
 
-/* main run loop */
+/* main sequence */
 async function runSequence(start=0){
   running = true;
   index = start;
-  // autoplay music if possible
-  bgm.currentTime = 0;
-  bgm.play().catch(()=>{ console.log("autoplay blocked"); });
+  setStatus("Slideshow started");
+  // play music
+  try { bgm.currentTime = 0; await bgm.play(); pauseBtn.textContent = 'Pause Music'; }
+  catch(err){ setStatus("Music didn't autoplay; use Play/Pause control", true); pauseBtn.textContent = 'Play Music'; console.warn(err); }
   while(running && index < photos.length){
     await showSlide(index);
     index++;
   }
-  // final glow message: show last message stronger
   if(running){
-    // show final card (repeat last or custom)
-    const lastIndex = Math.min(photos.length-1, index-1);
-    photoEl.src = photos[lastIndex];
+    // final display: last slide glowing
+    const last = Math.min(photos.length-1, index-1);
+    photoEl.src = photos[last];
+    photoHolder.style.display = "none";
     photoEl.classList.add('show');
-    msgEl.textContent = messages[lastIndex] || '';
+    msgEl.textContent = messages[last] || "";
     msgEl.classList.add('show','glow-strong');
-    // small hold then stop
-    timers.push(setTimeout(()=>{
-      // leave it for a while; user can replay
-    }, 2500));
+    setStatus("Slideshow finished — use Replay to play again");
   }
 }
 
-/* reveal -> go to page2 and start slideshow */
-revealBtn.addEventListener('click', ()=> {
+/* reveal click starts slideshow + shows page2 */
+revealBtn.addEventListener('click', ()=>{
   page1.classList.add('hidden');
   page2.classList.remove('hidden');
   page2.setAttribute('aria-hidden','false');
-  // create sparkles
-  createSparkles(20);
-  // try to play music (some browsers allow play after user click)
-  bgm.play().catch(()=>{ musicPaused = true; pauseBtn.textContent = 'Play Music'; });
-  // start sequence
+  createSparkles(18);
   clearTimers();
   runSequence(0);
 });
 
 /* controls */
-pauseBtn.addEventListener('click', () => {
-  if(bgm.paused){
-    bgm.play();
-    pauseBtn.textContent = 'Pause Music';
-  } else {
-    bgm.pause();
-    pauseBtn.textContent = 'Play Music';
-  }
+pauseBtn.addEventListener('click', ()=>{
+  if(bgm.paused){ bgm.play().then(()=>pauseBtn.textContent='Pause Music').catch(()=>pauseBtn.textContent='Play Music'); }
+  else { bgm.pause(); pauseBtn.textContent='Play Music'; }
 });
-replayBtn.addEventListener('click', () => {
+replayBtn.addEventListener('click', ()=>{
   clearTimers();
-  // reset and restart
-  index = 0;
   photoEl.classList.remove('show');
   msgEl.classList.remove('show','glow-strong');
   runSequence(0);
 });
-skipBtn.addEventListener('click', () => {
-  // skip current to next: clear timers and call show next
+skipBtn.addEventListener('click', ()=>{
   clearTimers();
-  if(index < photos.length - 1) index++;
-  else index = photos.length - 1;
+  if(index < photos.length-1) index++;
   runSequence(index);
 });
 
-/* cleanup when page hidden/unloaded */
-window.addEventListener('beforeunload', () => {
-  clearTimers();
-  if(bgm) { try { bgm.pause(); } catch(e){} }
-});
+/* simple sparkles */
+function createSparkles(n=14){
+  for(let i=0;i<n;i++){
+    const s = document.createElement('div');
+    s.className='sparkle';
+    s.style.left = Math.random()*window.innerWidth+'px';
+    s.style.top = (Math.random()*0.6+0.08)*window.innerHeight+'px';
+    s.style.width = (6+Math.random()*6)+'px';
+    s.style.height = s.style.width;
+    document.body.appendChild(s);
+    const dur = 2200 + Math.random()*2600;
+    s.animate([{opacity:0,transform:'translateY(6px) scale(.6)'},{opacity:1,transform:'translateY(0) scale(1)'},{opacity:0,transform:'translateY(-40px) scale(.8)'}],{duration:dur,iterations:Infinity,easing:'ease-out',delay:Math.random()*1000});
+  }
+}
+
+/* helpful console message */
+console.log("Birthday slideshow loaded. If images/music fail, check filenames and open DevTools Console (F12) for errors.");
 </script>
 </body>
 </html>
